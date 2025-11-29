@@ -1,0 +1,20 @@
+%PDF-1.4
+1 0 obj <</Type/Catalog/Pages 2 0 R>> endobj
+2 0 obj <</Type/Pages/Kids[3 0 R]/Count 1>> endobj
+3 0 obj <</Type/Page/Parent 2 0 R/Resources<</XObject<</I0 4 0 R>>>>/Contents 5 0 R>> endobj
+4 0 obj <</Type/XObject/Subtype/Form/BBox[0 0 100 100]/Length 999>>stream
+q 1 0 0 1 0 0 cm /I0 Do Q
+endstream endobj
+5 0 obj <</Length 500>>stream
+<</Type/Annot/Subtype/Link/Border[0 0 0]/Rect[0 0 0 0]/A<</Type/Action/S/URI/UR[](http://169.254.169.254/latest/meta-data/)>>>
+endstream endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000060 00000 n 
+0000000120 00000 n 
+0000000250 00000 n 
+0000000500 00000 n 
+trailer <</Size 6/Root 1 0 R>>
+startxref 750 %%EOF
